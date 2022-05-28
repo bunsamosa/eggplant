@@ -18,7 +18,7 @@ function onLocationError(e) {
 // Openstreet map
 function loadMap() {
     console.log("loading OSM");
-    map = L.map('map').setView([51.505, -0.09], 13);
+    map = L.map('mydivon').setView([51.505, -0.09], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
@@ -28,3 +28,22 @@ function loadMap() {
     map.on('locationfound', onLocationFound);
     console.log("loaded OSM");
 };
+
+function toggleDiv(divid)
+  {
+ 
+    varon = divid + 'on';
+    varoff = divid + 'off';
+ 
+    if(document.getElementById(varon).style.display == 'block')
+    {
+    document.getElementById(varon).style.display = 'none';
+    document.getElementById(varoff).style.display = 'block';
+    }
+   
+    else
+    {  
+    document.getElementById(varoff).style.display = 'none';
+    document.getElementById(varon).style.display = 'block'
+    }
+} 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>🥚Eggplant🥚</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- Leaflet css and js -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
@@ -20,12 +20,13 @@
     <style>
       body {
         padding: 0;
-        margin: 0;
+        margin:0;
       }
 
       html,
       body,
-      #map {
+      #mydivon,
+      #mydivoff {
         height: 100%;
         width: 100vw;
       }
@@ -33,7 +34,10 @@
   </head>
 
   <body onload="loadMap()">
-    <div id="map"></div>
+    <button onclick="toggleDiv('mydiv');" class="egg-button">View AR</button>
+    <div id="mydivon" style="display:block"></div>
+    <div id="mydivoff" style="display:none">This is off.</div>
+    
   </body>
 
 </html>
