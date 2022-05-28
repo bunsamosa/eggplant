@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>🥚Eggplant🥚</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script
+      src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/auth.js"></script>
   </head>
-  <body class="body-bg">
-      <div class="egg-yoda">
-          <img src="assets/egg_yoda.gif" alt="eggplant" id="eggplant">
-      </div>
-      <div class="align-button">
-          <button id="egg-button" onclick="eggplant()" class="egg-button">
-            Metamask
-        </button>
-          <button id="egg-button" onclick="eggplant()" class="egg-button">
-            Wallet Connect
-        </button>
-      </div>
+
+  <body class="body-bg" onload="logOut()">
+    <div class="egg-yoda">
+      <img src="assets/egg_yoda.gif" alt="eggplant" id="eggplant">
+    </div>
+    <div class="align-button">
+      <button id="metamask" onclick="metamaskLogin()" class="egg-button">
+        Metamask
+      </button>
+      <button id="walletconnect" onclick="walletconnectLogin()" class="egg-button">
+        Wallet Connect
+      </button>
+    </div>
   </body>
+
 </html>
