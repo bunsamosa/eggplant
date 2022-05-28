@@ -1,0 +1,32 @@
+.body-bg{
+    background-color: #faeece;
+}
+.egg-yoda{
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+}
+.egg-yoda img{
+    height: 30%;
+    width: 50%;
+}
+.align-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    gap: 20px;
+}
+.egg-button{
+    background-color: rgb(106, 228, 0);
+    border: none;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.egg-button:hover{
+    background-color: rgb(106, 228, 0);
+    color: white;
+}
