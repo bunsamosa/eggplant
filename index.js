@@ -1,3 +1,6 @@
+var map;
+
+// Location found event handler
 function onLocationFound(e) {
     var radius = e.accuracy;
 
@@ -7,6 +10,7 @@ function onLocationFound(e) {
     L.circle(e.latlng, radius).addTo(map);
 }
 
+// Location error event handler
 function onLocationError(e) {
     alert(e.message);
 }
@@ -14,7 +18,7 @@ function onLocationError(e) {
 // Openstreet map
 function loadMap() {
     console.log("loading OSM");
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    map = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
