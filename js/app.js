@@ -84,7 +84,7 @@ function getPosition(position) {
     // set camera position
     if (window.location.pathname == "/ar.html") {
         let camera_element = document.querySelector("a-camera");
-        camera_element.setAttribute("gps-camera", `simulateLatitude: ${latitude}; simulateLongitude: ${longitude};`);
+        camera_element.setAttribute("gps-camera", `simulateLatitude: ${lat}; simulateLongitude: ${long};`);
     };
     console.log(
         "Your coordinate is: Lat: " +
