@@ -43,6 +43,8 @@ function loadMap() {
     map.on('locationerror', onLocationError);
     map.on('locationfound', onLocationFound);
     console.log("loaded OSM");
+
+    // read balance
     getBalance();
 };
 
@@ -108,12 +110,12 @@ window.onclick = function (event) {
 
 // create event
 function createEvents() {
-    var url = "https://eggplant.bunsamosa.org/event.html?lat=" + lat + "&lng=" + lng + "&type=event";
+    var url = "https://eggplant.bunsamosa.org/event.html?lat=" + lat + "&lng=" + long + "&type=event";
     window.open(url, "_blank");
 }
 
 // create location
 function createPlace() {
-    var url = "https://eggplant.bunsamosa.org/place.html?lat=" + lat + "&lng=" + lng + "&type=place";
+    var url = "https://eggplant.bunsamosa.org/place.html?lat=" + lat + "&lng=" + long + "&type=place";
     window.open(url, "_blank");
 }
