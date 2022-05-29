@@ -44,13 +44,37 @@ body {
 .logout-btn {
     background-color: rgb(182, 34, 34);
     border: none;
-    height: 3rem;
-    width: 8rem;
-    border-radius: 15px;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50px;
     font-weight: 600;
     font-size: 12px;
     cursor: pointer;
     color: white;
+    /* margin-left: 42%; */
+}
+
+.egg-count{
+    border: none;
+    background-color: rgb(239, 164, 72);
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    margin-top: 4px !important;
+    margin-left: 5%;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.egg-modes{
+    border: none;
+    background-color: rgb(98, 201, 1);
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    color: white;
+    margin-left: 10%;
+    cursor: pointer;
 }
 
 .egg-button:hover,

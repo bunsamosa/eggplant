@@ -23,12 +23,12 @@ window.onclick = function(event) {
 
 // create event
 function createEvents() {
-    var url = "https://eggplant.bunsamosa.org/event.html?lat=" + lat + "&lng=" + lng + "&type=event";
+    var url = "http://127.0.0.1:5500/event.html?lat=" + lat + "&lng=" + lng + "&type=event";
     window.open(url, "_blank");
 }
 
 // create location
 function createPlace() {
-    var url = "https://eggplant.bunsamosa.org/place.html?lat=" + lat + "&lng=" + lng + "&type=place";
+    var url = "http://127.0.0.1:5500/place.html?lat=" + lat + "&lng=" + lng + "&type=place";
     window.open(url, "_blank");
 }

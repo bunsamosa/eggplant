@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🥚Eggplant🥚</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet css and js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
+
+    <!-- Moralis js -->
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+    <!-- AR JS -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <!-- Eggplant JS -->
+    <script src="js/map.js"></script>
+    <script src="js/arhelper.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<style>
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    form {
+        margin-top: 5%;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    </style>
+
+<body>
+    <button class="egg-count">🥚 </button>
+    <button onclick="logOut();" class="logout-btn">&#x23FB;</button>
+    <form>
+        <label for="lname">Location Name</label>
+        <input type="text" id="lname" name="locationname" placeholder="What's this loc...">
+
+        <label for="lname">Best Time to Visit</label>
+        <input type="text" id="bestTime" name="bestTime" placeholder="Best time to visit...">
+
+        <label for="lname">Ez Way to reach</label>
+        <input type="text" id="ezWay" name="ezWay" placeholder="Ez way to reach...">
+
+        <label for="wiki">Location Wiki</label>
+        <input type="text" id="wiki" name="locationname" placeholder="Add location Wiki...">
+      
+        <input type="submit" value="Add Location 🚀">
+      </form>
+</body>
+
+</html>
