@@ -81,6 +81,11 @@ function getPosition(position) {
 
     map.fitBounds(featureGroup.getBounds());
 
+    // set camera position
+    if (window.location.pathname == "/ar.html") {
+        let camera_element = document.querySelector("a-camera");
+        camera_element.setAttribute("gps-camera", `simulateLatitude: ${latitude}; simulateLongitude: ${longitude};`);
+    };
     console.log(
         "Your coordinate is: Lat: " +
         lat +

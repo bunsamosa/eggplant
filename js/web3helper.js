@@ -143,14 +143,16 @@ async function eggFarm() {
             const latitude = element.lat;
             const longitude = element.long;
             console.log("adding place to scene:", latitude, longitude);
-            // const portal = document.createElement("a-marker");
             const portal = document.createElement('a-image');
-            portal.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            portal.setAttribute('name', element.name);
-            portal.setAttribute('src', '../assets/marker.png');
-            // portal.setAttribute("gps-entity-place", `latitude: ${latitude}; longitude: ${longitude};`);
-            // portal.setAttribute("title", element.name);
-            portal.setAttribute("scale", "20, 20")
+            portal.setAttribute("src", '../assets/marker.png');
+            portal.setAttribute("name", element.name);
+            portal.setAttribute("look-at", "[gps-camera]");
+            portal.setAttribute("scale", "1 1 1");
+            portal.setAttribute("width", "1");
+            portal.setAttribute("height", "1");
+            portal.setAttribute("rotation", "180 90 0");
+            portal.setAttribute("gps-entity-place", `latitude: ${latitude}; longitude: ${longitude};`);
+
 
             portal.addEventListener("loaded", () => {
                 window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
