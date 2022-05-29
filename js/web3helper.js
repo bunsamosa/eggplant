@@ -1,11 +1,12 @@
 // start moralis sdk
 const serverUrl = "https://pjsctz5bkqjc.usemoralis.com:2053/server";
 const appId = "TBgozxOyrhwNWSqwPv6bKw0ZDb2PsH52d7GxEHRm";
+const ipfsGateway = "https://ipfs.infura.io/ipfs/";
 Moralis.start({ serverUrl, appId });
 
 // check if user is logged in
 let user = Moralis.User.current();
-var address, ipfsHash;
+var address, ipfsHash, placesData;
 
 if (!user) {
     window.location.href = "index.html";
@@ -112,7 +113,10 @@ async function getBalance() {
     let result = await Moralis.executeFunction(options);
     const balance = result.toString();
     console.log("Read egg balance:", balance);
-    document.getElementById("eg_balance").innerHTML = balance + "🥚";
+
+    if (window.location.pathname != "/ar.html") {
+        document.getElementById("eg_balance").innerHTML = balance + "🥚";
+    }
 
     // read farm data
     eggFarm();
@@ -124,16 +128,39 @@ async function eggFarm() {
     let result = await Moralis.executeFunction(options);
     const eggfarm = result.toString();
     console.log("Read eggfarm hash: ", eggfarm);
+
+    // populate AR page with places
+    if (window.location.pathname == "/ar.html") {
+        // read IPFS file
+        url = ipfsGateway + eggfarm;
+        console.log("IPFS url:", url);
+        const response = await fetch(url);
+        placesData = await response.json();
+        console.log(placesData);
+
+        let scene_element = document.querySelector("a-scene");
+        placesData.forEach(element => {
+            const latitude = element.lat;
+            const longitude = element.long;
+            console.log("adding place to scene:", latitude, longitude);
+            // const portal = document.createElement("a-marker");
+            const portal = document.createElement('a-image');
+            portal.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            portal.setAttribute('name', element.name);
+            portal.setAttribute('src', '../assets/marker.png');
+            // portal.setAttribute("gps-entity-place", `latitude: ${latitude}; longitude: ${longitude};`);
+            // portal.setAttribute("title", element.name);
+            portal.setAttribute("scale", "20, 20")
+
+            portal.addEventListener("loaded", () => {
+                window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+            });
+            scene_element.appendChild(portal);
+        });
+
+    }
 }
 
-const placesData = [
-    {
-        "lat": "12.9721",
-        "long": "77.5933",
-        "type": "Event",
-        "name": "Warpspeed Hackathon"
-    }
-]
 
 // upload data to IPFS and update contract
 async function uploadData() {
