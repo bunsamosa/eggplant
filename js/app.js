@@ -1,18 +1,5 @@
 var marker, circle, lat, long, accuracy, map, osm;
 
-// check if user is logged in
-const serverUrl = "https://pjsctz5bkqjc.usemoralis.com:2053/server";
-const appId = "TBgozxOyrhwNWSqwPv6bKw0ZDb2PsH52d7GxEHRm";
-Moralis.start({ serverUrl, appId });
-let user = Moralis.User.current();
-if (!user) {
-    window.location.href = "index.html";
-}
-else {
-    console.log("logged in user:", user);
-    console.log(user.get("ethAddress"));
-}
-
 // Location found event handler
 function onLocationFound(e) {
     accuracy = e.accuracy;
@@ -56,6 +43,7 @@ function loadMap() {
     map.on('locationerror', onLocationError);
     map.on('locationfound', onLocationFound);
     console.log("loaded OSM");
+    getBalance();
 };
 
 // Open AR page
@@ -108,13 +96,6 @@ if (!navigator.geolocation) {
     setInterval(() => {
         navigator.geolocation.getCurrentPosition(getPosition);
     }, 5000);
-}
-
-// Moralis Logout
-async function logOut() {
-    await Moralis.User.logOut();
-    console.log("logged out");
-    window.location.href = "index.html";
 }
 
 // open modal
