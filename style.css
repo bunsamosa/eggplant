@@ -52,7 +52,18 @@ body {
     font-size: 12px;
     cursor: pointer;
     color: white;
-    /* margin-left: 42%; */
+}
+
+.ar-logout-btn{
+    background-color: rgb(182, 34, 34);
+    border: none;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
 }
 
 .egg-count{
