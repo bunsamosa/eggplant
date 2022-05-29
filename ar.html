@@ -23,6 +23,7 @@
         <!-- Eggplant JS -->
         <script src="js/index.js"></script>
         <script src="js/map.js"></script>
+        <script src="js/arhelper.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     </head>
@@ -30,7 +31,7 @@
     <body onload="loadMap()">
         <button onclick="openMap();" class="egg-button">Map Mode</button>
         <div id="map" style="display: none;"></div>
-        <a-scene id="arscene" vr-mode-ui="enabled: false" embedded
+        <a-scene clickhandler emitevents="true" id="arscene" vr-mode-ui="enabled: false" embedded
             arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
 
             <a-camera gps-camera rotation-reader> </a-camera>

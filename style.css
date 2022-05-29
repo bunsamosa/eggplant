@@ -45,7 +45,7 @@ body {
 }
 
 #map {
-    padding-top: 20%;
+    position: absolute;
     height: 80%;
     width: 100vw;
 }
