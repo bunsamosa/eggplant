@@ -10,10 +10,3 @@ if (user) {
     // document.getElementById("logout").style.display = "block";
     window.location.href = "eggsplore.html";
 }
-
-// Moralis Logout
-async function logOut() {
-    await Moralis.User.logOut();
-    console.log("logged out");
-    window.location.href = "index.html";
-}

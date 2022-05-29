@@ -109,3 +109,10 @@ if (!navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getPosition);
     }, 5000);
 }
+
+// Moralis Logout
+async function logOut() {
+    await Moralis.User.logOut();
+    console.log("logged out");
+    window.location.href = "index.html";
+}

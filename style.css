@@ -41,6 +41,18 @@ body {
     cursor: pointer;
 }
 
+.logout-btn {
+    background-color: rgb(182, 34, 34);
+    border: none;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+}
+
 .egg-button:hover,
 .event-egg-button:hover {
     background-color: rgb(106, 228, 0);
