@@ -30,7 +30,8 @@ body {
     margin-left: 10%;
 }
 
-.egg-button,.event-egg-button {
+.egg-button,
+.event-egg-button {
     background-color: rgb(106, 228, 0);
     border: none;
     height: 3rem;
@@ -88,7 +89,8 @@ body {
     height: 80%;
     width: 100vw;
 }
-.modal{
+
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -98,7 +100,8 @@ body {
     height: 100%;
     overflow: auto;
 }
-.modal-content{
+
+.modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -111,12 +114,13 @@ body {
         margin-top: 70% !important;
         margin-left: 15% !important;
     }
-    
+
     .egg-yoda img {
         height: 30% !important;
         width: 50% !important;
     }
+
     .align-button {
         margin-left: 10% !important;
     }
-  }
+}

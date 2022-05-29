@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>🥚Eggplant🥚</title>
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>🥚Eggplant🥚</title>
+        <link rel="stylesheet" href="style.css">
 
-    <!-- Leaflet css and js -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
+        <!-- Leaflet css and js -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
 
-    <!-- Moralis js -->
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+        <!-- Moralis js -->
+        <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 
-    <!-- AR JS -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <!-- AR JS -->
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
-    <!-- Eggplant JS -->
-    <script src="js/map.js"></script>
-    <script src="js/arhelper.js"></script>
+        <!-- Eggplant JS -->
+        <script src="js/app.js"></script>
+        <script src="js/arhelper.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
 
-<body onload="loadMap()">
-    <button onclick="openMap();" class="egg-modes">Map Mode</button>
-    <button class="egg-count">🥚 </button>
-    <button onclick="logOut();" class="logout-btn">&#x23FB;</button>
-    <div id="map" style="display: none;"></div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div>
-                <button class="egg-button" onclick="createEvents();">Add Event</button>
-                <button class="egg-button" onclick="createPlace();">Add Place</button>
+    <body onload="loadMap()">
+        <div id="map" style="display: none;"></div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <p>
+                        <button class="egg-button" onclick="createEvents();">Add Event</button>
+                        <button class="egg-button" onclick="createPlace();">Add Place</button>
+                    </p>
+                    <p>
+                        <button onclick="openMap();" class="egg-button">Map Mode</button>
+                        <button onclick="logOut();" class="logout-btn">Logout</button>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <a-scene clickhandler emitevents="true" id="arscene" vr-mode-ui="enabled: false" embedded
-        arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
-        <a-camera gps-camera rotation-reader> </a-camera>
-    </a-scene>
+        <a-scene clickhandler emitevents="true" id="arscene" vr-mode-ui="enabled: false"
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+            <a-camera gps-camera rotation-reader> </a-camera>
+        </a-scene>
 
-</body>
+    </body>
 
 </html>
