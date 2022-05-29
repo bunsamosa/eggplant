@@ -140,6 +140,7 @@ const handler = (event) => {
         const result = getFormJSON(formElement);
         console.log(result)
     }
+    document.getElementById("forms").reset();
 }
 
 formElement.addEventListener("submit", handler)
