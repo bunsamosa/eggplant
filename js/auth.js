@@ -1,7 +1,6 @@
 /* Metamask authentication code */
 async function metamaskLogin() {
     let user = Moralis.User.current();
-    console.log(user);
     if (!user) {
         user = await Moralis.authenticate({
             signingMessage: "Log in to Eggplant",
@@ -10,10 +9,16 @@ async function metamaskLogin() {
             .then(function (user) {
                 console.log("logged in user:", user);
                 console.log(user.get("ethAddress"));
+                window.location.href = "eggsplore.html";
             })
             .catch(function (error) {
                 console.log(error);
             });
+    }
+    else {
+        console.log("logged in user:", user);
+        console.log(user.get("ethAddress"));
+        window.location.href = "eggsplore.html";
     }
 }
 
@@ -29,9 +34,15 @@ async function walletconnectLogin() {
             .then(function (user) {
                 console.log("logged in user:", user);
                 console.log(user.get("ethAddress"));
+                window.location.href = "eggsplore.html";
             })
             .catch(function (error) {
                 console.log(error);
             });
+    }
+    else {
+        console.log("logged in user:", user);
+        console.log(user.get("ethAddress"));
+        window.location.href = "eggsplore.html";
     }
 }
