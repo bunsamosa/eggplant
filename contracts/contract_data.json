@@ -1,0 +1,69 @@
+{
+    "contract_address": "0xdAB0d83193b8699dFAf2F1431986C69d1FcF8d4f",
+    "chain": "mumbai",
+    "ABI": [
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "hen",
+                    "type": "string"
+                }
+            ],
+            "name": "addhen",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                }
+            ],
+            "name": "eggbalance",
+            "outputs": [
+                {
+                    "internalType": "int256",
+                    "name": "",
+                    "type": "int256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                },
+                {
+                    "internalType": "int256",
+                    "name": "eggs",
+                    "type": "int256"
+                }
+            ],
+            "name": "eggdrop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "eggfarm",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+}
