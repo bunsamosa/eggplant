@@ -13,31 +13,18 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
 
     <!-- Moralis js -->
-    <!-- <script src=""></script> -->
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+    <!-- Eggplant JS -->
     <script src="js/index.js"></script>
     <script src="js/map.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>
-      body {
-        padding: 0;
-        margin:0;
-      }
 
-      html,
-      body,
-      #mydivon,
-      #mydivoff {
-        height: 100%;
-        width: 100vw;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
 
   <body onload="loadMap()">
-    <button onclick="toggleDiv('mydiv');" class="egg-button">View AR</button>
-    <div id="mydivon" style="display:block"></div>
-    <div id="mydivoff" style="display:none">This is off.</div>
-    
+    <button onclick="openAR();" class="egg-button">AR Mode</button>
+    <div id="map"></div>
   </body>
 
 </html>

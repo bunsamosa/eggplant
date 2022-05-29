@@ -1,13 +1,25 @@
-var map;
+var marker, circle, lat, long, accuracy, map, osm;
 
 // Location found event handler
 function onLocationFound(e) {
-    var radius = e.accuracy;
+    accuracy = e.accuracy;
+    lat = e.latlng.lat;
+    long = e.latlng.lng;
 
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    marker = L.marker(e.latlng);
+    circle = L.circle(e.latlng, accuracy);
+    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
-    L.circle(e.latlng, radius).addTo(map);
+    map.fitBounds(featureGroup.getBounds());
+
+    console.log(
+        "Your coordinate is: Lat: " +
+        lat +
+        " Long: " +
+        long +
+        " Accuracy: " +
+        accuracy
+    );
 }
 
 // Location error event handler
@@ -18,32 +30,59 @@ function onLocationError(e) {
 // Openstreet map
 function loadMap() {
     console.log("loading OSM");
-    map = L.map('mydivon').setView([51.505, -0.09], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Initialize map
+    map = L.map("map").setView([51.505, -0.09], 13);
+
+    // Initialize osm layer
+    osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
     }).addTo(map);
+
     map.locate({ setView: true, maxZoom: 16 });
     map.on('locationerror', onLocationError);
     map.on('locationfound', onLocationFound);
     console.log("loaded OSM");
 };
 
-function toggleDiv(divid)
-  {
- 
-    varon = divid + 'on';
-    varoff = divid + 'off';
- 
-    if(document.getElementById(varon).style.display == 'block')
-    {
-    document.getElementById(varon).style.display = 'none';
-    document.getElementById(varoff).style.display = 'block';
+
+// live location fn call
+function getPosition(position) {
+    // console.log(position)
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    accuracy = position.coords.accuracy;
+
+    if (marker) {
+        map.removeLayer(marker);
     }
-   
-    else
-    {  
-    document.getElementById(varoff).style.display = 'none';
-    document.getElementById(varon).style.display = 'block'
+
+    if (circle) {
+        map.removeLayer(circle);
     }
-} 
+
+    marker = L.marker([lat, long]);
+    circle = L.circle([lat, long], { radius: accuracy });
+
+    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+
+    map.fitBounds(featureGroup.getBounds());
+
+    console.log(
+        "Your coordinate is: Lat: " +
+        lat +
+        " Long: " +
+        long +
+        " Accuracy: " +
+        accuracy
+    );
+}
+
+// set interval for live location update
+if (!navigator.geolocation) {
+    console.log("Your browser doesn't support geolocation feature!");
+} else {
+    setInterval(() => {
+        navigator.geolocation.getCurrentPosition(getPosition);
+    }, 5000);
+}

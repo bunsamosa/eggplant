@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>🥚Eggplant🥚</title>
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Leaflet css and js -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" crossorigin=""></script>
+
+        <!-- Moralis js -->
+        <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+
+        <!-- AR JS -->
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+        <!-- Eggplant JS -->
+        <script src="js/index.js"></script>
+        <script src="js/map.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+
+    <body onload="loadMap()">
+        <button onclick="openMap();" class="egg-button">Map Mode</button>
+        <div id="map" style="display: none;"></div>
+        <a-scene id="arscene" vr-mode-ui="enabled: false" embedded
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+
+            <a-camera gps-camera rotation-reader> </a-camera>
+        </a-scene>
+
+    </body>
+
+</html>

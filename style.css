@@ -1,22 +1,34 @@
-.body-bg{
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+}
+
+.body-bg {
     background-color: #faeece;
 }
-.egg-yoda{
+
+.egg-yoda {
     display: flex;
     justify-content: center;
     margin-top: 50%;
 }
-.egg-yoda img{
+
+.egg-yoda img {
     height: 30%;
     width: 50%;
 }
-.align-button{
+
+.align-button {
     display: flex;
     justify-content: center;
     margin-top: 10%;
     gap: 20px;
 }
-.egg-button{
+
+.egg-button {
     background-color: rgb(106, 228, 0);
     border: none;
     height: 3rem;
@@ -26,7 +38,14 @@
     font-size: 12px;
     cursor: pointer;
 }
-.egg-button:hover{
+
+.egg-button:hover {
     background-color: rgb(106, 228, 0);
     color: white;
+}
+
+#map {
+    padding-top: 20%;
+    height: 80%;
+    width: 100vw;
 }

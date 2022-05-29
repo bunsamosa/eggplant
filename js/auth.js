@@ -35,8 +35,3 @@ async function walletconnectLogin() {
             });
     }
 }
-
-async function logOut() {
-    await Moralis.User.logOut();
-    console.log("logged out");
-}
