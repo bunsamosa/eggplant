@@ -7,10 +7,11 @@ function onLocationFound(e) {
     long = e.latlng.lng;
 
     marker = L.marker(e.latlng);
-    circle = L.circle(e.latlng, accuracy);
-    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+    marker.addTo(map);
+    // circle = L.circle(e.latlng, accuracy);
+    // var featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
-    map.fitBounds(featureGroup.getBounds());
+    // map.fitBounds(featureGroup.getBounds());
 
     console.log(
         "Your coordinate is: Lat: " +
@@ -31,7 +32,7 @@ function onLocationError(e) {
 function loadMap() {
     console.log("loading OSM");
     // Initialize map
-    map = L.map("map").setView([51.505, -0.09], 13);
+    map = L.map("map").setView([12.9721, 77.5933], 13);
 
     // Initialize osm layer
     osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -75,11 +76,12 @@ function getPosition(position) {
     }
 
     marker = L.marker([lat, long]);
-    circle = L.circle([lat, long], { radius: accuracy });
+    marker.addTo(map);
+    // circle = L.circle([lat, long], { radius: accuracy });
 
-    var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+    // var featureGroup = L.featureGroup([marker, circle]).addTo(map);
 
-    map.fitBounds(featureGroup.getBounds());
+    // map.fitBounds(featureGroup.getBounds());
 
     // set camera position
     if (window.location.pathname == "/ar.html") {
@@ -125,8 +127,6 @@ function createPlace() {
     window.open(url, "_blank");
 }
 
-// get the form element
-const formElement = document.querySelector('form#forms')
 
 // convert the form to JSON
 const getFormJSON = (form) => {
@@ -143,9 +143,12 @@ const handler = (event) => {
     const valid = formElement.reportValidity();
     if (valid) {
         const result = getFormJSON(formElement);
-        console.log(result)
+        console.log(result);
+        uploadData();
     }
     document.getElementById("forms").reset();
 }
 
-formElement.addEventListener("submit", handler)
+// get the form element
+const formElement = document.querySelector('form#forms');
+formElement.addEventListener("submit", handler);

@@ -129,15 +129,15 @@ async function eggFarm() {
     const eggfarm = result.toString();
     console.log("Read eggfarm hash: ", eggfarm);
 
+    // read IPFS file
+    url = ipfsGateway + eggfarm;
+    console.log("IPFS url:", url);
+    const response = await fetch(url);
+    placesData = await response.json();
+    console.log(placesData);
+
     // populate AR page with places
     if (window.location.pathname == "/ar.html") {
-        // read IPFS file
-        url = ipfsGateway + eggfarm;
-        console.log("IPFS url:", url);
-        const response = await fetch(url);
-        placesData = await response.json();
-        console.log(placesData);
-
         let scene_element = document.querySelector("a-scene");
         placesData.forEach(element => {
             const latitude = element.lat;
@@ -150,7 +150,7 @@ async function eggFarm() {
             portal.setAttribute("scale", "1 1 1");
             portal.setAttribute("width", "1");
             portal.setAttribute("height", "1");
-            portal.setAttribute("rotation", "180 90 0");
+            portal.setAttribute("rotation", "0 90 0");
             portal.setAttribute("gps-entity-place", `latitude: ${latitude}; longitude: ${longitude};`);
 
 
@@ -161,11 +161,36 @@ async function eggFarm() {
         });
 
     }
+    else if (window.location.pathname == "/eggsplore.html") {
+        placesData.forEach(element => {
+            L.marker([element.lat, element.long]).addTo(map);
+        });
+    };
 }
 
 
 // upload data to IPFS and update contract
 async function uploadData() {
+    placesData = [
+        {
+            "lat": "12.9750400686",
+            "long": "77.607730329",
+            "name": "Skydeck",
+            "type": "Place"
+        },
+        {
+            "lat": "12.9718278",
+            "long": "77.5987031",
+            "name": "Truffles",
+            "type": "Place"
+        },
+        {
+            "lat": "12.9667734",
+            "long": "77.5529124",
+            "name": "Thirdwave Coffee Roasters",
+            "type": "Place"
+        }
+    ];
     const file = new Moralis.File("eggplant_places.json", {
         base64: btoa(JSON.stringify(placesData)),
     });
