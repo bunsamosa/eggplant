@@ -110,12 +110,36 @@ window.onclick = function (event) {
 
 // create event
 function createEvents() {
-    var url = "https://eggplant.bunsamosa.org/event.html?lat=" + lat + "&lng=" + long + "&type=event";
+    var url = "event.html?lat=" + lat + "&lng=" + long + "&type=event";
     window.open(url, "_blank");
 }
 
 // create location
 function createPlace() {
-    var url = "https://eggplant.bunsamosa.org/place.html?lat=" + lat + "&lng=" + long + "&type=place";
+    var url = "place.html?lat=" + lat + "&lng=" + long + "&type=place";
     window.open(url, "_blank");
 }
+
+// get the form element
+const formElement = document.querySelector('form#forms')
+
+// convert the form to JSON
+const getFormJSON = (form) => {
+    const data = new FormData(form);
+    return Array.from(data.keys()).reduce((result, key) => {
+        result[key] = data.get(key);
+        return result;
+    }, {});
+};
+
+// handle the form submission event
+const handler = (event) => {
+    event.preventDefault();
+    const valid = formElement.reportValidity();
+    if (valid) {
+        const result = getFormJSON(formElement);
+        console.log(result)
+    }
+}
+
+formElement.addEventListener("submit", handler)

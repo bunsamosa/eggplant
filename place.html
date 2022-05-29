@@ -22,7 +22,6 @@
 
     <!-- Eggplant JS -->
     <script src="js/web3helper.js"></script>
-    <script src="js/app.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
@@ -68,9 +67,9 @@
 <body>
     <button class="egg-count">🥚 </button>
     <button onclick="logOut();" class="logout-btn">⏻</button>
-    <form>
+    <form name="forms" id="forms">
         <label for="lname">Location Name</label>
-        <input type="text" id="lname" name="locationname" placeholder="What's this loc...">
+        <input type="text" id="lname" name="locationName" placeholder="What's this loc...">
 
         <label for="lname">Best Time to Visit</label>
         <input type="text" id="bestTime" name="bestTime" placeholder="Best time to visit...">
@@ -79,10 +78,10 @@
         <input type="text" id="ezWay" name="ezWay" placeholder="Best way to reach...">
 
         <label for="wiki">Location Wiki</label>
-        <input type="text" id="wiki" name="locationname" placeholder="Add location Wiki...">
+        <input type="text" id="wiki" name="locationWiki" placeholder="Add location Wiki...">
       
         <input type="submit" value="Add Location 🚀">
       </form>
 </body>
-
+<script src="js/app.js"></script>
 </html>
